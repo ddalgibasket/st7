@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>말줄임표css</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      margin: 50px;
+      padding: 1em;
+      /*자신의 font-size 크기 기준*/
+      background-color: #ccc;
+    }
+/* 여러줄 말줄임 */
+    .box1 {
+      /* white-space: normal; */
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      width: 80%;
+      height: 70px;
+    }
+/* 한줄 말줄임표 */
+    .box2 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /*overflow*/
+    .box3,
+    .box4,
+    .box5 {
+      width: 400px;
+      height: 40px;
+    }
+
+    .box3 {
+      overflow: visible;
+    }
+
+    .box4 {
+      overflow: hidden;
+    }
+
+    .box5 {
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- div.box.box$*2>lorem -->
+  <div class="box box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, debitis at impedit
+    accusamus ipsum maiores magni quaerat atque, asperiores placeat esse sit fuga alias voluptate veniam similique
+    officiis sunt voluptatum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, debitis at impedit
+    accusamus ipsum maiores magni quaerat atque, asperiores placeat esse sit fuga alias voluptate veniam similique
+    officiis sunt voluptatum!</div>
+  <div class="box box2">Reiciendis officia itaque enim pariatur ducimus quo repellendus, molestias, ipsa magnam nemo
+    expedita laboriosam quam voluptate porro laudantium ullam reprehenderit quidem consequatur! Distinctio numquam
+    tenetur velit dolorum iste veniam fugiat?</div>
+  <hr>
+  <!-- .box.box$@3*3>lorem -->
+  <div class="box box3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores similique reprehenderit,
+    architecto totam sit vero veritatis minus ullam ipsam officia, corrupti culpa dicta pariatur hic. Similique
+    aspernatur repellat vel vitae.</div>
+  <div class="box box4">Distinctio impedit magnam ullam excepturi obcaecati ipsam soluta accusantium reiciendis dolores
+    deleniti sint earum cumque maxime laudantium asperiores tenetur officia, ut, consectetur neque. Aut et fugiat iusto
+    rerum vero consectetur!</div>
+  <div class="box box5">Distinctio impedit magnam ullam excepturi obcaecati ipsam soluta accusantium reiciendis dolores
+    deleniti sint earum cumque maxime laudantium asperiores tenetur officia, ut, consectetur neque. Aut et fugiat iusto
+    rerum vero consectetur!</div>
+</body>
+
+</html>
