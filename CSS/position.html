@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    .container{
+      position: relative;
+      margin: 100px;
+      background-color: #ccc;
+    }
+    .box{
+      width: 100px; height: 100px;
+    }
+    .box:nth-child(odd){
+      background-color: #ef6;
+    }
+    .box:nth-child(even){
+      background-color: #f6e;
+    }
+    .box1{
+      position: static; /* 위치를 지정하는 left, right, top, bottom 속성의 값을 인식X */
+      left: 100px; top: 100px
+    }
+    .box2{
+      /*기준:본인 일반흐름 O */
+      position: relative;
+      left: 50px; top:50px
+    }
+    .box3, .box4, .box5{
+      position: absolute;
+      /* left: 50px; top:50px; */
+    }
+    .box3{
+      right: 0; top:0;
+    }
+    .box4{
+      right: 50px; bottom: -50px;
+    }
+    .box5{
+      left:120px; top: 40px;
+    }
+    .box6{
+      /* 기준 브라우저
+      일한흐름 : X */
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+    body{
+      height: 3000px;
+    }
+  </style>
+</head>
+<body>
+  <!-- .container>.box.box$*6>child>{box$} -->
+  <div class="container">
+    <div class="box box1">
+      <child>box1</child>
+    </div>
+    <div class="box box2">
+      <child>box2</child>
+    </div>
+    <div class="box box3">
+      <child>box3</child>
+    </div>
+    <div class="box box4">
+      <child>box4</child>
+    </div>
+    <div class="box box5">
+      <child>box5</child>
+    </div>
+    <div class="box box6">
+      <child>box6</child>
+    </div>
+  </div>
+</body>
+</html>
