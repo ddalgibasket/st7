@@ -30,6 +30,9 @@
 
     .ec-base-product {
       width: auto;
+      /* background-color: #0f0;
+      border: 1px solid #080;
+      padding: 10px 0; */
     }
 
     .ec-base-product ul.prdList {
@@ -37,17 +40,19 @@
       font-size: 0;
       line-height: 0;
       width: auto;
-      background-color: #333;
+      /* background-color: #333; */
+      /* 2. 상품 양옆으로 준 여백만큼 -margin :0 -10px; */
+      margin: 0 -10px; 
     }
 
     .ec-base-product ul.prdList>li {
       display: inline-block;
       width: 33.333%;
-      background-color: #ccc;
-      border: 1px solid #f00;
+      /* background-color: #ccc;
+      border: 1px solid #f00; */
       box-sizing: border-box;
       /* ul에 글자크기 줄간격 0으로 설정한 것을 다시 재설정  */
-      font-size: 1rem;
+      font-size: 16px;
       line-height: 1.4;
 
       /* 양옆의 10px 씩 들어온거 처리  */
@@ -55,7 +60,15 @@
     }
 
     .ec-base-product .prdList__item {
+      /* 
+      1. 상품간 여백을 위해서 .prdList__item border 안쪽 여백을 이용해서 padding 10px
+      2번처리 
+      */
       padding: 0 10px;
+      /* 2-2상품 설명이 사진 위에 겹쳐지게 하기 위해서 description의 기준점이 되기 위해 */
+      position: relative;
+      /* .prdList__item 크기 밖에 있는 것은 보이지 말아라 */
+      overflow: hidden;
     }
 
     .ec-base-product .prdList__item .thumbnail {}
@@ -70,10 +83,31 @@
     }
 
     .ec-base-product .prdList__item .description {
+      /*     .ec-base-product .prdList__item  2-2 사진 위에 설명 겹치기 위한 설정 */
+      position: absolute; 
+      left: 10px; bottom: 0;
+       /*.description 기준 요소의 너비를 따라라*/
+
+       transform: translateY(100%); /*  본인 수직 크기만큼 아래로 이동*/
+      width: calc(100% - 20px);
+      box-sizing: border-box; /* width => border + padding + content */
       background-color: rgba(255, 255, 255, 0.5);
+      padding: 0.8em 1em;
+      opacity: 0.5;
+      transition: all 0.5s ease;
+    }
+    /* 상품에 마우스를 오버했을 떄 .description은 썸네일과 겹쳐라 */
+    .ec-base-product .prdList__item:hover .description {
+      /* left: 10px; bottom: 0; 동일한 값은 생략 */
+      transform: translateY(0); /* 썸네일 원위치에 있어라*/
+/* css 수치값이 변화는 과정을 보여주는 transition */
+opacity: 1;
+transition: transform 1s ease;
     }
 
-    .ec-base-product .prdList__item .description .name {}
+    .ec-base-product .prdList__item .description .name {
+      margin-bottom: 0.5em;
+    }
 
     .ec-base-product .prdList__item .description .spec {}
 
