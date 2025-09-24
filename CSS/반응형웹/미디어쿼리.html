@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어쿼리</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+/* media-box의 기준 */
+      position: relative;
+      width: 100%; height: 100vh;
+    background: #3F5EFB;
+background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+    }
+
+    .media-txt {
+      position: fixed;
+      right: 50px;
+      top: 50px;
+      background-color: #fff;
+      border: 1px solid #000;
+      border-radius: 0.5em;
+      padding: 0.5em;
+    }
+
+    .media-txt::before {
+      content: "pc";
+    }
+
+    .media-box {
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%; top: 50%;
+
+      width: 50%;
+      max-width: 700px;
+      min-width: 360px;
+      padding: 30px;
+
+      /* 투명배경색 */
+      background-color: rgba(255, 255, 255, 0.5);
+
+      /* 모서리 둥글게 */
+      border-radius: 20px;
+    }
+
+    .media-box .media-wrap {
+      width: auto;
+      aspect-ratio: 4/3;
+            /* 모서리 둥글게 */
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .media-box .media-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1. 이미지가 브라우저 가운데 위치 
+   2. 이미지 크기는 이미지 비율을 따르면서 너비를 지정
+   3. 장치마다(pc, 태블릿, 모바일) 구분을 배경색-그라디언트
+   -->
+  <div class="container">
+    <div class="media-txt">
+
+    </div>
+
+    <div class="media-box">
+      <div class="media-wrap"><img src="https://images.pexels.com/photos/6207744/pexels-photo-6207744.jpeg" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

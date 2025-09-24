@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>유튜브동영상반응형</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    .container{margin: 50px;}
+    .media-box{width: 80%; max-width: 768px; min-width: 360px;}
+    .media-box .media-wrap{
+      /*     .media-box .media-wrap iframe 의 기준 */
+      position: relative; /*다른 요소에 레이아웃 변화x 기준됨*/
+      padding-top: 56.25%; 
+      /* 동영상크기 16:9*/
+      /* padding-top: 76%;  */
+      /* 동영상크기 4:3*/
+      border: 1px solid #000;
+      background-color: #ccc;
+    }
+    .media-box .media-wrap iframe{
+    /* 1. 기준 2. 크기 3. 위치 */
+    position: absolute; /*media-wrap iframe의 크기 인식x*/
+    width: 100%; /*media-wrap 너비*/
+      height: 100%; /*media-wrap 높이*/
+      left: 0; top: 0; /*media-wrap 0,0*/
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- .media-box>.media-wrap -->
+    <div class="media-box">
+      <div class="media-wrap">
+        <!-- 유튜브 동영상 -->
+         <iframe width="560" height="315" src="https://www.youtube.com/embed/Kz2BsKX04ek?si=IAUK_MZPUN011LHx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+</body>
+</html>
