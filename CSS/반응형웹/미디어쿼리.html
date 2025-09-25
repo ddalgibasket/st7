@@ -21,16 +21,38 @@ background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 
 
     .media-txt {
       position: fixed;
-      right: 50px;
+      left: 50px;
       top: 50px;
       background-color: #fff;
       border: 1px solid #000;
       border-radius: 0.5em;
       padding: 0.5em;
+      z-index: 100;
     }
 
     .media-txt::before {
-      content: "pc";
+      content: "wide desk";
+    }
+    @media(max-width:1199.98px){
+          .media-txt::before {
+      content: "desk";}
+    }
+    @media(max-width:1023.98px){
+                .media-txt::before {
+      content: "tablet";}
+    }
+    @media(max-width:767.98px){
+                .media-txt::before {
+      content: "mobile";}
+    }
+    /* @media(max-width:576.98px){
+                .media-txt::before {
+      content: "mobile";}
+    } */
+    @media(max-width:576.98px) and (orientation: portrait){
+      .media-txt{left: 30px; top: 20px;}
+                .media-txt::before {
+      content: "mobile portrait";}
     }
 
     .media-box {
@@ -49,6 +71,9 @@ background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 
 
       /* 모서리 둥글게 */
       border-radius: 20px;
+
+      /* 그림자 */
+      box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.5);
     }
 
     .media-box .media-wrap {
@@ -65,6 +90,46 @@ background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 
       object-fit: cover;
       object-position: center;
     }
+
+    /* media quary */
+
+ /******    
+     @media (max-width:1199.93px){ 
+ ******/
+    @media (max-width:1199.93px){
+      /* 1200px보다 너비 작은 미디어에는  */
+      .container{
+        background: #3F5EFB;
+background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(70, 252, 213, 0) 100%);
+      }
+    }
+
+     /******    
+     @media (max-width:767.98px){ 
+ ******/
+
+    @media (max-width:767.98px){
+      /* 768 이하인  */
+      .container{
+        background: #ef6;
+      }
+      .media-box{
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .media-box .media-wrap{
+        border-radius: 12px;
+      }
+    }
+
+@media (max-width:576.98px) and (orientation: portrait){
+  .media-box .media-wrap{
+aspect-ratio: 3/4;
+  }
+
+
+}
+
   </style>
 </head>
 
