@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex7 갤러리 부모의 크기에 따라 유동적 크기(비율유지)</title>
+  <style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    body{
+      margin-top: 50px;
+    }
+    /* 모양 */
+    .container{
+      /* 해당섹션의 제일 상위 요소는 배경색 */
+      background-color: beige;
+    }
+    .card-wrap{
+      position: relative; /*.card-item .overlay{의 기준요소*/
+    }
+    .card-list{
+      max-width: 1440px; /*정렬용*/
+      margin: 0 50px; /*정렬용*/
+
+    }
+    .card-item{
+      /* background-color: dodgerblue; */
+      /* border: 1px solid darkblue; */
+    }
+    .card-item .thumb{
+    /* border: 1px solid black; */
+    }
+
+
+    .card-item .thumb img{
+      display: block;
+      max-width: 100%; 
+      height: auto;
+      object-fit: cover;
+    }
+    .card-item .overlay{
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; /* 기준요소의 너비의 콘텐트 영역을 가져옴*/
+      /* background-color: #fff; */
+    }
+
+
+    /* flex */
+  
+    /* flex container => .card-list */
+    .card-list{
+      /* width: 1000px; */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    /* flex item 크기를 지정 */
+    .card-wrap{
+      /* width: 25%; (20 * (4-1)) */
+      width: calc(25% - ((20px * 3) / 4)); /* gap을 지정했을 때 item에 width 계산*/
+      flex: none;
+    }
+
+/* media query */
+/* wide desk top */
+@media (max-width:1536.98px){
+  .card-list{
+   max-width: 1440px; /*정렬용*/
+      margin: 0 50px /*정렬용*/}
+}
+
+/* desk top */
+@media (max-width:1399.98px){
+  .card-list{
+   max-width: none; /*정렬용*/
+}
+}
+
+/* tablet */
+@media (max-width:1023.98px){
+  /* 3단 */
+      .card-wrap{
+      /* width: 25%; (20 * (3-1)) / 4 */
+      width: calc(33.333% - ((20px * 2) / 3)); /* gap을 지정했을 때 item에 width 계산*/
+
+    }
+}
+
+/* mobime */
+@media (max-width:639.98px){
+  /* 2단 */
+      .card-wrap{
+      /* width: 50%; (20 * (2-1)) / 2*/
+      width: calc(50% - ((20px * 1) / 2)); /* gap을 지정했을 때 item에 width 계산*/
+
+    }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- .card-wrap>.card>.thumb+.overlay>p.title+p.disc -->
+    <div class="card-list">
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=1" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=2" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=3" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=4" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=5" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=6" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+   
+   
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=7" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=8" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=9" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=10" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=11" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=12" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+       </div>
+    </div>
+    <!-- //.card-list -->
+
+  </div>
+</body>
+</html>
