@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오버레이 </title>
+  <style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    body{
+      margin-top: 50px;
+    }
+    /* 모양 */
+    .container{
+      /* 해당섹션의 제일 상위 요소는 배경색 */
+      background-color: beige;
+    }
+    .card-wrap{
+      position: relative; /*.card-item .overlay{의 기준요소*/
+      overflow: hidden;
+    }
+    .card-list{
+      max-width: 1440px; /*정렬용*/
+      margin: 0 50px; /*정렬용*/
+
+    }
+    .card-item{
+      /* background-color: dodgerblue; */
+      /* border: 1px solid darkblue; */
+    }
+    .card-item .thumb{
+    /* border: 1px solid black; */
+    }
+
+
+    .card-item .thumb img{
+      display: block;
+      max-width: 100%; 
+      height: auto;
+      object-fit: cover;
+    }
+    /* 오버레이가 그림과 동일한 크기 */
+    .card-item .overlay{
+      /* position: absolute;
+      left: 0; top: 0;
+      width: 100%; /* 기준요소의 너비의 콘텐트 영역을 가져옴*/
+      /* height: 100%; 기준요소의 높이의 콘텐츠 영역을 가져옴 */
+
+      background-color: rgba(0, 50, 100, 0.5);
+      color: #fff;
+    }
+
+    .card-item .overlay > p{
+padding: 0.2em 0.5em;
+    }
+
+/* 오버레이 아이템 정렬 수직 가운데 수평 가운데*/
+.card-item .overlay{
+        position: absolute;
+      left: 0; top: 0;
+
+      /* 기준 요소 밖으로 배치 */
+      transform: translateY(-100%);
+      transition: all 0.4s ease;
+      width: 100%; /* 기준요소의 너비의 콘텐트 영역을 가져옴*/
+      height: 100%; /*기준요소의 높이의 콘텐츠 영역을 가져옴*/
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+text-align: center; /* overlay요소 안에 후손 inline들의 정렬 */
+}
+
+.card-wrap:hover .card-item .overlay{
+transform: translateY(0);
+transition: all 0.2 ease;
+}
+
+
+
+
+    /* flex */
+  
+/* 1. flex container를 지정 display:flex
+2. flex-direction 방향
+3. (선택) flex-wrap 아이템의 총합의 크기가 contatiner 크기보다 클때 줄바꿈 여부 
+4 gap 아이템과 아이템 사이에 여백결정
+5. justify-content 아이템을 덩어리로 주축의 방향을 정렬
+6. aline-item 아이템을 덩어리로 교차축의 방향을 정렬
+7. (선택) aline-content 아이템이 줄바꿈을 했다면 교차축의 정렬
+8.flex-grow item 자동키우기 0
+9. flex-shrink 아이템 자동수축
+10. */
+
+    /* flex container => .card-list */
+    .card-list{
+      /* width: 1000px; */
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    /* flex item 크기를 지정 */
+    .card-wrap{
+      /* width: 25%; (20 * (4-1)) */
+      width: calc(25% - ((20px * 3) / 4)); /* gap을 지정했을 때 item에 width 계산*/
+      flex: none;
+    }
+
+
+/* media query */
+/* wide desk top */
+@media (max-width:1536.98px){
+  .card-list{
+   max-width: 1440px; /*정렬용*/
+      margin: 0 50px /*정렬용*/}
+}
+
+/* desk top */
+@media (max-width:1399.98px){
+  .card-list{
+   max-width: none; /*정렬용*/
+}
+}
+
+/* tablet */
+@media (max-width:1023.98px){
+  /* 3단 */
+      .card-wrap{
+      /* width: 25%; (20 * (3-1)) / 4 */
+      width: calc(33.333% - ((20px * 2) / 3)); /* gap을 지정했을 때 item에 width 계산*/
+      background-color: #ccc;
+    }
+    .card-item .overlay{
+        position: static;
+      /* left: 0; top: 0; */
+
+background-color: transparent;
+color: #000;
+      /* 기준 요소 밖으로 배치 */
+      transform: translateY(0);
+      transition: all 0.4s ease;
+/* 너비는 부모 높이는 자식*/
+      width: 100%; 
+      height: auto; 
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: start; /*왼쪽정렬*/
+
+text-align: left; /* overlay요소 안에 후손 inline들의 정렬 */
+font-size: 0.825em;
+}
+}
+
+/* mobime */
+@media (max-width:639.98px){
+  /* 2단 */
+      .card-wrap{
+      /* width: 50%; (20 * (2-1)) / 2*/
+      width: calc(50% - ((20px * 1) / 2)); /* gap을 지정했을 때 item에 width 계산*/
+    }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- .card-wrap>.card>.thumb+.overlay>p.title+p.disc -->
+    <div class="card-list">
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=1" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=2" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem, ipsum dolor.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=3" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=4" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=5" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=6" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+   
+   
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=7" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=8" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=9" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=10" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=11" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-wrap">
+        <div class="card card-item">
+          <div class="thumb"><img src="https://picsum.photos/400/300?random=12" alt=""></div>
+          <div class="overlay">
+            <p class="title">포트폴리오 제목</p>
+            <p class="disc">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+      </div>
+       </div>
+    </div>
+    <!-- //.card-list -->
+
+  </div>
+</body>
+</html>
