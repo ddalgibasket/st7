@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>swiper</title>
+  <title>swiper-네비게이션변경</title>
 
   <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
 />
+<link rel="stylesheet" href="myswiper-style.css">
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
@@ -16,13 +17,14 @@
   *{margin: 0; padding: 0;}
   body{margin-top: 50px;}
   .myname{
-    width: 60%;
+    width: 400px;
   }
   .swiper-slide img{
     width: 100%;
     /* height: calc(100vh - 70px); */
     height: auto;
     object-fit: cover;
+    display: block;
   }
 </style>
 </head>
@@ -32,13 +34,13 @@
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=1" alt=""></div>
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=2" alt=""></div>
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=3" alt=""></div>
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=4" alt=""></div>
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=5" alt=""></div>
-    <div class="swiper-slide"><img src="https://picsum.photos/2000/2000?random=6" alt=""></div>
-    ...
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=1" alt=""></div>
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=2" alt=""></div>
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=3" alt=""></div>
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=4" alt=""></div>
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=5" alt=""></div>
+    <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=6" alt=""></div>
+  
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
@@ -55,10 +57,10 @@
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  autoplay: {
-  delay: 2500,
-  disableOnInteraction: false,
-},
+//   autoplay: {
+//   delay: 2500,
+//   disableOnInteraction: false,
+// },
 
   // If we need pagination
   pagination: {
