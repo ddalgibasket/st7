@@ -64,7 +64,7 @@ mystyle
   transition: opacity 0.5s;
 }
 
-.ec-base-product .prdList .prdList__item .icon__box>span {
+.ec-base-product .prdList .prdList__item .icon__box > span {
   display: block;
   position: relative;
   font-size: 11px;
@@ -79,29 +79,31 @@ mystyle
 
 
   /* 하트 아이콘만 */
-  /* min-width: 72px;
+  min-width: 72px;
     height: 40px;
     padding: 10px 15px; 
-    font-size: 0; /*텍스트 안보이게
-    color: transparent; /*텍스트 안보이게*/
+    font-size: 0; /*텍스트 안보이게 */
+    color: transparent; /*텍스트 안보이게 */
+    line-height: 1;
+    text-align: center;
 
 
   /* wish 글자만 */
-  min-width: 72px;
+  /* min-width: 72px;
   height: auto;
   line-height: 1;
   padding: 10px 15px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7); */
 
 
-  /* 하트 아이콘 + wish 글자
-        min-width: 100px;
+  /* 하트 아이콘 + wish 글자 */
+   /* min-width: 100px;
     height: 40px;
     padding: 8px 8px; */
 
 
 
-  line-height: 1;
+
   background-color: rgba(255, 255, 255, 0.7);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3FFFFFF, endColorstr=#B3FFFFFF);
 }
@@ -112,12 +114,12 @@ mystyle
   border: 1px solid #000;
   /* color: #fff; */
 
-  /* 하트 아이콘만
+  /* 하트 아이콘만 */
   color: transparent;
-  */
+
 
   /* wish글자만 */
-  color: currentColor;
+  /* color: currentColor; */
 }
 
 .ec-base-product .prdList .prdList__item .icon__box>span img {
@@ -126,20 +128,20 @@ mystyle
   /* 하트 아이콘만
   하트 아이콘 +  wish 글자
    */
-  /* position: static; */
+  position: static;
   width: auto;
   max-width: none;
   height: 100%;
   /* top: 0;
     left: 0; */
-  /* opacity: 1; */
+   opacity: 1;
 
 
   /* wish 글자만 */
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
+  opacity: 0; */
 }
 
 
@@ -206,8 +208,6 @@ card-border
 .section {
 
 }
-
-
 
 
 #contents>.section_full_content_center {
@@ -465,12 +465,12 @@ ub-dan */
 .ub-dan{}
 .ub-dan-row{}
 .ub-dan-item{
-  border: 1px solid #f00; 
+  /* border: 1px solid #f00;  */
 }
 
 
 /* 
-단처리 태블린 이하 스크롤
+단처리 태블릿 이하 스크롤
 .ub-dan-row.md-scroll
 */
 @media (max-width:1024px){
