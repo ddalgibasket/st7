@@ -145,6 +145,7 @@ mystyle
 }
 
 
+
 /* 
 card-border-no-margin
 */
@@ -746,6 +747,15 @@ content-list*/
   top: 80px; left: calc(200px + 20px);
 }
 
+#footer .inner .bt_bottom {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding: 50px;
+}
+
 .bt_top .info_left .bt_company{
     position: absolute;
   flex-basis: auto;
@@ -765,6 +775,12 @@ content-list*/
   position: absolute; left: 0; top: 0;
   display: none;
 }
+
+.cs_txt [data-ez-role="title"]{
+display: none;
+}
+
+
 
 
 /* *****SNS 이미지 처리***** */
@@ -808,20 +824,42 @@ display: none;
     width: auto;
   }
 .bt_top .info_left .bt_company{
-  position: static;
-      flex-basis: 100%;
+  position: relative;
+  top: auto;
+  left: auto;
     width: auto;
 }
+
 .sns_txt [data-ez-role="title"]{
 display: block;
 }
-.bt_top .bt_top_fold .bt_sns{
-    position: static;
+
+.cs_txt [data-ez-role="title"]{
+display: block;
 }
+
+.bt_top .bt_top_fold .bt_sns {
+position: relative;
+top: auto;
+left: auto;
+    }
+
 .bt_top .bt_top_fold .bt_bank{
     position: static;
-    display: none;
+    display: none !important;
 }
+}
+
+@media (min-width: 1024px) {
+    #footer .tablet_fold {
+        display: flex !important;
+        gap: 10px;
+    }
+  #footer .bt_top .bt_top_fold li.bt_cc ul.tablet_fold {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
 }
 
 
