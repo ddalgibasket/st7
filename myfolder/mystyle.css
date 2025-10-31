@@ -35,7 +35,10 @@ mystyle
   margin: 0 10px;
 }
 
-.ec-base-product .prdList__item .thumbnail {}
+.ec-base-product .prdList__item .thumbnail {
+    border-radius: 30px;
+  overflow: hidden;
+}
 
 .ec-base-product .prdList__item .thumbnail .prdIcon.ec-product-bgRT {
   background-position: calc(100% - 10px) calc(0% + 10px);
@@ -700,25 +703,45 @@ margin-right: 2%;
   /* background-color: #efefef; */
 }
 
-.section.tab-vertical .main_product_tab li button.active{
-  color: var(--ub-tab-button-active);
+.section.tab-vertical .main_product_tab li .button,
+.section.tab-vertical .main_product_tab li button {
+  padding: 10px 20px;
+  border-radius: 24px;
+  background-color: #fff;;
+  color: #000;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.section.tab-vertical .main_product_tab li .button::after,
+.section.tab-vertical .main_product_tab li button::after,
+.section.tab-vertical .main_product_tab li .button.active::after,
+.section.tab-vertical .main_product_tab li button.active::after {
+  content: none !important;
+  display: none !important;
 }
 
-.section.tab-vertical .main_product_tab li button.active::after{
-content: "";
-position: absolute;
-bottom: 0px;
-left: 0;
-width: 100%;
-height: 2px;
-background-color: var(--ub-tab-button-active);
+.section.tab-vertical .main_product_tab li .button:hover,
+.section.tab-vertical .main_product_tab li button:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
 }
+
+.section.tab-vertical .main_product_tab li button.active{
+  background-color: #000;
+  color: #fff !important; 
+  border-color: #000;
+}
+
+
+
 
 /* li에 배경을 넣는다면 content:none 
 li에 배경을 넣지 않으면 content:none을 코멘트처리*/
 .section.tab-vertical .main_product_tab >li button::after,
 .section.tab-vertical .main_product_tab >li button.active::after{
-  /* content: none; */
+  content: none;
 }
 
 .section.tab-vertical .content_list{
