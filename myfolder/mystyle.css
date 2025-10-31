@@ -703,6 +703,9 @@ margin-right: 2%;
   /* background-color: #efefef; */
 }
 
+
+/* 탭메뉴 블랙 라운드 처리 */
+
 .section.tab-vertical .main_product_tab li .button,
 .section.tab-vertical .main_product_tab li button {
   padding: 10px 20px;

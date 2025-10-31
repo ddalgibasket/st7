@@ -199,7 +199,7 @@ card-border
 
 
 .ec-base-product .prdList__item .description {
-  min-height: 200px;
+  min-height: 100px;
   box-sizing: border-box;
   padding: 10px;
 }
@@ -671,11 +671,13 @@ background-color: var(--ub-tab-button-active);
 .section.tab-vertical .main_product_inner{
 width: 16%;
 margin-right: 2%;
+margin-bottom: 0px;
 
 }
 .section.tab-vertical .main_title{
-  text-align: left; margin-bottom: 0; flex: 1 1 auto;
-  margin-bottom: var(--space-lg);
+  text-align: left; margin-bottom: 0; 
+  flex: 0 0 auto;
+  margin-bottom: var(--space-xs);
 }
 
 .section.tab-vertical .main_title .main_title_txt01{
@@ -699,10 +701,14 @@ margin-right: 2%;
 
 .section.tab-vertical .main_product_tab >li{
   margin: 0;
-  padding: var(--space-sm) var(--space-md);
-  margin-bottom: var(--space-md);
+  padding: 5px;
+  margin-bottom: var(--space-xs);
   /* background-color: #efefef; */
 }
+
+
+
+/* 탭메뉴 블랙 라운드 처리 */
 
 .section.tab-vertical .main_product_tab li .button,
 .section.tab-vertical .main_product_tab li button {
@@ -734,6 +740,18 @@ margin-right: 2%;
   color: #fff !important; 
   border-color: #000;
 }
+
+
+.section.tab-vertical .main_product_tab li.active .button{
+    color: #FFF;
+    background-color: #000;
+}
+
+
+.main_product_tab li.active {
+  background-color: transparent !important;
+}
+
 
 .section.tab-vertical .content_list{
   width: 82%;
