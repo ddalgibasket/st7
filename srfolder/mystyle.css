@@ -148,6 +148,12 @@ mystyle
   opacity: 0; */
 }
 
+.theme02 .xans-product-detail .infoArea table .sale_box,
+.theme02 .ec-base-product .prdList .thumbnail .sale_box {
+    background-color: #333 !important;
+    color: #FFF !important;
+}
+
 /* 
 card-border-no-margin
 */

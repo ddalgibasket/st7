@@ -1,0 +1,185 @@
+<style>
+
+  .sr_new1dan_title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #000;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .sr_new1dan_card {
+    background-color: #ececec;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+        margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
+
+  .sr_new1dan_image {
+    flex: 0 0 500px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer; 
+  }
+
+.sr_new1dan_image:hover img {
+    transform: scale(1.05);
+}
+  .sr_new1dan_image img {
+    width: 100%;
+    height: auto;
+    display: block;
+     transition: transform 0.3s ease;
+  }
+
+  .sr_new1dan_info {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .sr_new1dan_date {
+    color: #FF6B6B;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
+  .sr_new1dan_name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .sr_new1dan_price {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .sr_new1dan_emoji {
+    font-size: 24px;
+  }
+
+  .sr_new1dan_btn {
+    background: linear-gradient(135deg, #D94E67 0%, #FF6B6B 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    align-items: start;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 300px;
+  }
+
+  .sr_new1dan_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+  }
+
+  .sr_new1dan_btn:active {
+    transform: translateY(0);
+  }
+
+  .sr_new1dan_icon {
+    font-size: 20px;
+  }
+
+  @media (max-width: 968px) {
+    .sr_new1dan_card {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sr_new1dan_image {
+      flex: none;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .sr_new1dan_title {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 15px;
+    }
+
+    .sr_new1dan_card {
+      padding: 25px;
+    }
+
+    .sr_new1dan_title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .sr_new1dan_date {
+      font-size: 18px;
+    }
+
+    .sr_new1dan_name {
+      font-size: 20px;
+    }
+
+    .sr_new1dan_price {
+      font-size: 18px;
+    }
+
+    .sr_new1dan_btn {
+      padding: 15px 40px;
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="sr_new1dan">
+    <h1 class="sr_new1dan_title">출시 예정 상품</h1>
+
+    <div class="sr_new1dan_card">
+      <div class="sr_new1dan_image">
+        <img
+          src="https://ecimg.cafe24img.com/pg2183b19280385000/petpm/web/product/medium/20251027/224e463b48d8c8760f6e3ffeab11887c.png"
+          alt="떡볶이 떡마리 출시일박">
+      </div>
+
+      <div class="sr_new1dan_info">
+        <div class="sr_new1dan_date">11/30 출시 예정</div>
+        <div class="sr_new1dan_name">저당 소떡소떡 출시임박</div>
+        <div class="sr_new1dan_price">
+          <span class="sr_new1dan_emoji">😍</span>
+          <span>알림 신청하면 적립금 1,000원(12월 3일 지급)</span>
+        </div>
+        <button class="sr_new1dan_btn">
+          <span class="sr_new1dan_icon">🔔</span>
+          출시 알림 신청
+        </button>
+      </div>
+    </div>
+  </div>
