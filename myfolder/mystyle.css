@@ -35,7 +35,10 @@ mystyle
   margin: 0 10px;
 }
 
-.ec-base-product .prdList__item .thumbnail {}
+.ec-base-product .prdList__item .thumbnail {
+    border-radius: 30px;
+  overflow: hidden;
+}
 
 .ec-base-product .prdList__item .thumbnail .prdIcon.ec-product-bgRT {
   background-position: calc(100% - 10px) calc(0% + 10px);
@@ -69,9 +72,9 @@ mystyle
   position: relative;
   font-size: 11px;
   font-weight: 500;
-  color: #000;
+  color: #ccc;
   background-color: transparent;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
   cursor: pointer;
@@ -103,15 +106,14 @@ mystyle
 
 
 
-
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3FFFFFF, endColorstr=#B3FFFFFF);
 }
 
 .ec-base-product .prdList .prdList__item .icon__box>span:hover,
 .ec-base-product .prdList .prdList__item .icon__box>span.on {
-  background-color: #fff;
-  border: 1px solid #000;
+  background-color: rgba(255, 238, 6, 0.3);
+  border: 1px solid #777;
   /* color: #fff; */
 
   /* 하트 아이콘만 */
@@ -132,8 +134,8 @@ mystyle
   width: auto;
   max-width: none;
   height: 100%;
-  /* top: 0;
-    left: 0; */
+  top: 0;
+    left: 0;
    opacity: 1;
 
 
@@ -701,25 +703,48 @@ margin-right: 2%;
   /* background-color: #efefef; */
 }
 
-.section.tab-vertical .main_product_tab li button.active{
-  color: var(--ub-tab-button-active);
+
+/* 탭메뉴 블랙 라운드 처리 */
+
+.section.tab-vertical .main_product_tab li .button,
+.section.tab-vertical .main_product_tab li button {
+  padding: 10px 20px;
+  border-radius: 24px;
+  background-color: #fff;;
+  color: #000;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.section.tab-vertical .main_product_tab li .button::after,
+.section.tab-vertical .main_product_tab li button::after,
+.section.tab-vertical .main_product_tab li .button.active::after,
+.section.tab-vertical .main_product_tab li button.active::after {
+  content: none !important;
+  display: none !important;
 }
 
-.section.tab-vertical .main_product_tab li button.active::after{
-content: "";
-position: absolute;
-bottom: 0px;
-left: 0;
-width: 100%;
-height: 2px;
-background-color: var(--ub-tab-button-active);
+.section.tab-vertical .main_product_tab li .button:hover,
+.section.tab-vertical .main_product_tab li button:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
 }
+
+.section.tab-vertical .main_product_tab li button.active{
+  background-color: #000;
+  color: #fff !important; 
+  border-color: #000;
+}
+
+
+
 
 /* li에 배경을 넣는다면 content:none 
 li에 배경을 넣지 않으면 content:none을 코멘트처리*/
 .section.tab-vertical .main_product_tab >li button::after,
 .section.tab-vertical .main_product_tab >li button.active::after{
-  /* content: none; */
+  content: none;
 }
 
 .section.tab-vertical .content_list{
@@ -735,6 +760,94 @@ content-list*/
 .section.main_product_category .content_list .tabcontent.active{
   display: block;
 }
+
+/* *****푸터 위치 변경***** */
+#footer .inner{position: relative;}
+
+#footer .inner .bt_middle {
+  width: calc(100% - (12% + 14%));
+  flex-basis: auto;
+  position: absolute;
+  top: 80px; left: calc(200px + 20px);
+}
+
+.bt_top .info_left .bt_company{
+    position: absolute;
+  flex-basis: auto;
+    width: calc(100% - (15% + 17%));
+    top: calc(50px + 10px); left:calc(200px + 20px);
+}
+
+.bt_top .bt_top_fold .bt_sns{
+  position: absolute;
+  left: 0;
+  /* .bt_logo의 height */
+  top: calc(58px + 16px);
+  margin-left: 0;
+}
+
+.bt_top .bt_top_fold .bt_bank{
+  position: absolute; left: 0; top: 0;
+  display: none;
+}
+
+
+/* *****SNS 이미지 처리***** */
+.sns_txt{
+  display: flex;
+  gap: 0px 10px;
+  flex-wrap: wrap;
+}
+
+.sns_txt [data-ez-role="title"]{
+display: none;
+}
+.sns_txt a{
+  width: 33px; height: 33px; display: block;
+  overflow: hidden;
+  background: no-repeat center/contain;
+  background-image: url(/myfolder/images/youtube_logo.png);
+  text-indent: -9999px;
+}
+
+.sns_txt a[data-ez-item="instagram"]{
+  background-image: url(/myfolder/images/instagram_logo.png);
+}
+.sns_txt a[data-ez-item="youtube"]{
+  background-image: url(/myfolder/images/youtube_logo.png);
+}
+.sns_txt a[data-ez-item="facebook"]{}
+.sns_txt a[data-ez-item="kakao"]{
+  background-image: url(/myfolder/images/kakao_logo.png);
+}
+.sns_txt a[data-ez-item="twitter"]{}
+.sns_txt a[data-ez-item="blog"]{}
+
+@media (max-width:720px){
+  #footer .inner .bt_middle {
+    position: static;
+    flex-basis: 100%;
+    width: auto;
+  }
+.bt_top .info_left .bt_company{
+  position: static;
+      flex-basis: 100%;
+    width: auto;
+}
+.sns_txt [data-ez-role="title"]{
+display: block;
+}
+.bt_top .bt_top_fold .bt_sns{
+    position: static;
+}
+.bt_top .bt_top_fold .bt_bank{
+    position: static;
+    display: none;
+}
+
+
+}
+
 
 /* 탭메뉴 미디어 쿼리 ***************** */
 
@@ -819,3 +932,27 @@ padding-left: 0;
   margin-bottom: var(--space-md);
 }
 }/* @media (max-width:767px){ */
+
+/* **********
+배너매니저 동영상 스타일
+*/
+
+
+.df-bannermanager{
+  width: 100%;
+}
+.df-bannermanager div[df-banner-clone]{
+  width: 100%;
+  aspect-ratio: 21/9;
+}
+
+.df-bannermanager div[df-banner-clone] iframe{
+  display: block; width: 100%; height: 100%;
+}
+
+
+/* .tab-vertical.tab-slides nowrap */
+
+.tab-slides .ec-base-product .prdList.swiper-wrapper{
+  flex-wrap: nowrap;
+} 
